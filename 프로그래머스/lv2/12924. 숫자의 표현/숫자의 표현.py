@@ -9,6 +9,7 @@ def solution(n):
                 break
             elif (sum>n):
                 break
+            
     return answer
 '''
 def solution(n):
