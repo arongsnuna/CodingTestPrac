@@ -1,9 +1,8 @@
 def solution(myString):
     answer = ''
     for i in myString:
-        if(i.islower()):
-            answer += i.upper()
-        else:
+        if(i.isupper()):
             answer += i
-            
+        else:
+            answer += i.upper()
     return answer
