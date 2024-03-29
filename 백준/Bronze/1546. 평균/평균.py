@@ -1,12 +1,9 @@
-a=int(input()) 
-inn=input()
-nums =[]
-summ = 0
+n = int(input())
+test_list = list(map(int, input().split()))
+max_score = max(test_list)
 
-for i in range(a):
-    nums.append(int(inn.split()[i]))
-max_num = max(nums)
-for i in nums:
-    summ += i/max_num*100
-    
-print(summ/a)
+new_list = []
+for score in test_list :
+    new_list.append(score/max_score *100)  # 새로운 점수 생성
+test_avg = sum(new_list)/n
+print(test_avg)
