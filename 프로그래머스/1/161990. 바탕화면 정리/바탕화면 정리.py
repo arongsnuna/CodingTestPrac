@@ -1,18 +1,8 @@
 def solution(wallpaper):
-    answer = [0]
+    a, b = [], []
     for i in range(len(wallpaper)):
-        for j in range(len(wallpaper[0])):
-            if (wallpaper[i][j]=='#'):
-                if(len(answer)==1):
-                    answer.extend([i,j,i+1,j+1])
-                    answer.pop(0)
-                else:
-                    if(answer[0]>i):
-                        answer[0]=i
-                    if(answer[1]>j):
-                        answer[1]=j
-                    if(answer[2]<i+1):
-                        answer[2]=i+1
-                    if(answer[3]<j+1):
-                        answer[3]=j+1
-    return answer
+        for j in range(len(wallpaper[i])):
+            if wallpaper[i][j] == "#":
+                a.append(i)
+                b.append(j)
+    return [min(a), min(b), max(a) + 1, max(b) + 1]
