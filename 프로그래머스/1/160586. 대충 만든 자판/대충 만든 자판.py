@@ -1,20 +1,17 @@
 def solution(keymap, targets):
     answer = []
-    keys ={}
-    for key in keymap:
-        for l in range(len(key)):
-            if key[l] not in keys:
-                keys[key[l]] = l+1
-            else:
-                if(keys[key[l]]>l+1):
-                    keys[key[l]]=l+1
-    for target in targets:
-        a=0
-        for t in target:
-            if(t not in keys):
-                a=-1
+    keys = {}
+    for k in keymap:
+        for i, ch in enumerate(k):
+            keys[ch] = min(i + 1, keys[ch]) if ch in keys else i + 1
+
+    for i, t in enumerate(targets):
+        ret = 0
+        for ch in t:
+            if ch not in keys:
+                ret = - 1
                 break
-            else:
-                a+=keys[t]
-        answer.append(a)
+            ret += keys[ch]
+        answer.append(ret)
+
     return answer
